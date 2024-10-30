@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { Accelerometer, Gyroscope } from 'expo-sensors';
+import { Stack } from 'expo-router';
 
 export default function SensorData() {
   const [accelData, setAccelData] = useState({
@@ -43,6 +44,11 @@ export default function SensorData() {
 
   return (
     <View style={styles.container}>
+        <Stack.Screen
+          options={{
+            title: 'Live Sensor Data'
+          }}
+        />
         <View style={{paddingBottom: 50}}>
             <Text style={styles.text}>Accelerometer: (in gs where 1g = 9.81 m/s^2)</Text>
             <Text style={styles.text}>x: {accelData.x.toFixed(3)}</Text>
@@ -69,7 +75,7 @@ export default function SensorData() {
   );
 }
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
@@ -89,10 +95,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'dodgerblue',
     padding: 10,
-  },
-  middleButton: {
-    borderLeftWidth: 1,
-    borderRightWidth: 1,
-    borderColor: '#ccc',
   },
 });

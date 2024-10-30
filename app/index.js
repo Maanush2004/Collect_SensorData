@@ -16,6 +16,18 @@ export default function Home() {
                 }
                 title="Live Sensor Data"
         />
+        <Button
+                onPress={() =>
+                    navigation.navigate('capturedata')
+                }
+                title="Capture Sensor Data"
+        />
+        <Button
+                onPress={() =>
+                    navigation.navigate('exportdata')
+                }
+                title="Export Data"
+        />
       </View>
     );
 }
